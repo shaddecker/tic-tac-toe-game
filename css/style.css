@@ -1,0 +1,114 @@
+body {
+  background-color: rgb(265 165 0);
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-rows: 150px 1fr 75px;
+  grid-template-columns: 150px 1fr;
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  grid-row: 1;
+  grid-column: 1 / span 2;
+  background: darkgrey;
+  font-size: 4vw;
+  font-family: "Fresca", Arial, Helvetica, sans-serif;
+  padding: 3vw;
+  text-align: center;
+}
+
+main {
+  grid-row: 2;
+  grid-column: 2;
+  background: darkgrey;
+}
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 350px;
+  width: 350px;
+  margin: 10px;
+  padding: 5px;
+}
+.square {
+  border: solid 2px black;
+  height: 100%;
+  width: 100%;
+  margin: 10px;
+  padding: 5px;
+}
+
+#square_1 {
+  background-color: tan;
+}
+#square_2 {
+  background-color: tan;
+}
+#square_3 {
+  background-color: tan;
+}
+#square_4 {
+  background-color: tan;
+}
+#square_5 {
+  background-color: tan;
+}
+#square_6 {
+  background-color: tan;
+}
+#square_7 {
+  background-color: tan;
+}
+#square_8 {
+  background-color: tan;
+}
+#square_9 {
+  background-color: tan;
+}
+
+.left {
+  grid-row: 2;
+  grid-column: 1;
+  background: white;
+  padding: 1vw;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5vw;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  background: darkgrey;
+  padding: 3px;
+}
+
+#home {
+  background: lightgrey;
+  color: black;
+  padding: 3px;
+  margin: 3px;
+}
+#home:hover {
+  background: black;
+  color: white;
+}
+
+#homesection {
+  display: block;
+}
+
+footer {
+  grid-row: 3;
+  grid-column: 1 / span 2;
+  background: darkgrey;
+  font-family: "Fresca", Arial, Helvetica, sans-serif;
+  font-size: 1vw;
+  padding: 3vw;
+  text-align: center;
+}
