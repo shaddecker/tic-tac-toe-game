@@ -50,13 +50,6 @@ class Cell {
   }
 }
 
-function displayWinner(winningPlayer) {
-  console.log(`${winningPlayer} wins"`);
-  let winnerBox = document.querySelector("#winner");
-  winnerBox.innerText = `${winningPlayer} wins!!`;
-  winnerBox.style.display = "block";
-}
-
 let myGame = new Game();
 let myCell1 = new Cell(1);
 let myCell2 = new Cell(2);
@@ -67,6 +60,13 @@ let myCell6 = new Cell(6);
 let myCell7 = new Cell(7);
 let myCell8 = new Cell(8);
 let myCell9 = new Cell(9);
+
+function displayWinner(winningPlayer) {
+  console.log(`${winningPlayer} wins"`);
+  let winnerBox = document.querySelector("#winner");
+  winnerBox.innerText = `${winningPlayer} wins!!`;
+  winnerBox.style.display = "block";
+}
 
 let square1 = document.querySelector("#square_1");
 square1.addEventListener("click", () => {
@@ -222,10 +222,22 @@ square9.addEventListener("click", () => {
   }
 });
 
-// let clearGameButton = document.querySelector("ClearGame");
-// clearGameButton.addEventListener("click", () => {
-//     let squares = document.querySelectorAll(".square")
-//     squares.forEach( square () => {
-
-//     }
-// });
+let startGameButton = document.querySelector("#StartGame");
+startGameButton.addEventListener("click", () => {
+  let squares = document.querySelectorAll(".square");
+  squares.forEach((square) => {
+    square.style.background = "tan";
+  });
+  myGame.player1Moves = [];
+  myGame.player2Moves = [];
+  myGame.nextColor = "red";
+  myCell1.clicked = false;
+  myCell2.clicked = false;
+  myCell3.clicked = false;
+  myCell4.clicked = false;
+  myCell5.clicked = false;
+  myCell6.clicked = false;
+  myCell7.clicked = false;
+  myCell8.clicked = false;
+  myCell9.clicked = false;
+});

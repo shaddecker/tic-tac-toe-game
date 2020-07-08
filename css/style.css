@@ -89,22 +89,18 @@ li {
   flex-direction: column;
   justify-content: flex-start;
   align-content: flex-start;
-  background: darkgrey;
+  background: lightgrey;
+  color: black;
+  margin: 3px;
   padding: 3px;
 }
 
-#home {
-  background: lightgrey;
-  color: black;
-  padding: 3px;
-  margin: 3px;
-}
-#home:hover {
+#StartGame:hover {
   background: black;
   color: white;
 }
 
-#homesection {
+homesection {
   display: block;
 }
 
