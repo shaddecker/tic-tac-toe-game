@@ -40,7 +40,12 @@ main {
   margin: 10px;
   padding: 5px;
 }
-
+#winner {
+  font-size: 2vw;
+  font-family: "Fresca", Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: red;
+}
 #square_1 {
   background-color: tan;
 }

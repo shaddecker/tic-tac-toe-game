@@ -52,6 +52,9 @@ class Cell {
 
 function displayWinner(winningPlayer) {
   console.log(`${winningPlayer} wins"`);
+  let winnerBox = document.querySelector("#winner");
+  winnerBox.innerText = `${winningPlayer} wins!!`;
+  winnerBox.style.display = "block";
 }
 
 let myGame = new Game();
@@ -90,6 +93,11 @@ square2.addEventListener("click", () => {
     myCell2.clicked = true;
     myCell2.color = myGame.nextColor;
     myGame.changeColor(2);
+    if (myGame.compare(myGame.player1Moves)) {
+      displayWinner("Player 1");
+    } else if (myGame.compare(myGame.player2Moves)) {
+      displayWinner("Player 2");
+    }
   } else {
     console.log(`cell already clicked and is ${myCell2.color}`);
   }
@@ -102,6 +110,11 @@ square3.addEventListener("click", () => {
     myCell3.clicked = true;
     myCell3.color = myGame.nextColor;
     myGame.changeColor(3);
+    if (myGame.compare(myGame.player1Moves)) {
+      displayWinner("Player 1");
+    } else if (myGame.compare(myGame.player2Moves)) {
+      displayWinner("Player 2");
+    }
   } else {
     console.log(`cell already clicked and is ${myCell3.color}`);
   }
@@ -114,6 +127,11 @@ square4.addEventListener("click", () => {
     myCell4.clicked = true;
     myCell4.color = myGame.nextColor;
     myGame.changeColor(4);
+    if (myGame.compare(myGame.player1Moves)) {
+      displayWinner("Player 1");
+    } else if (myGame.compare(myGame.player2Moves)) {
+      displayWinner("Player 2");
+    }
   } else {
     console.log(`cell already clicked and is ${myCell4.color}`);
   }
@@ -126,6 +144,11 @@ square5.addEventListener("click", () => {
     myCell5.clicked = true;
     myCell5.color = myGame.nextColor;
     myGame.changeColor(5);
+    if (myGame.compare(myGame.player1Moves)) {
+      displayWinner("Player 1");
+    } else if (myGame.compare(myGame.player2Moves)) {
+      displayWinner("Player 2");
+    }
   } else {
     console.log(`cell already clicked and is ${myCell5.color}`);
   }
@@ -138,6 +161,11 @@ square6.addEventListener("click", () => {
     myCell6.clicked = true;
     myCell6.color = myGame.nextColor;
     myGame.changeColor(6);
+    if (myGame.compare(myGame.player1Moves)) {
+      displayWinner("Player 1");
+    } else if (myGame.compare(myGame.player2Moves)) {
+      displayWinner("Player 2");
+    }
   } else {
     console.log(`cell already clicked and is ${myCell6.color}`);
   }
@@ -150,6 +178,11 @@ square7.addEventListener("click", () => {
     myCell7.clicked = true;
     myCell7.color = myGame.nextColor;
     myGame.changeColor(7);
+    if (myGame.compare(myGame.player1Moves)) {
+      displayWinner("Player 1");
+    } else if (myGame.compare(myGame.player2Moves)) {
+      displayWinner("Player 2");
+    }
   } else {
     console.log(`cell already clicked and is ${myCell7.color}`);
   }
@@ -162,6 +195,11 @@ square8.addEventListener("click", () => {
     myCell8.clicked = true;
     myCell8.color = myGame.nextColor;
     myGame.changeColor(8);
+    if (myGame.compare(myGame.player1Moves)) {
+      displayWinner("Player 1");
+    } else if (myGame.compare(myGame.player2Moves)) {
+      displayWinner("Player 2");
+    }
   } else {
     console.log(`cell already clicked and is ${myCell8.color}`);
   }
@@ -174,6 +212,11 @@ square9.addEventListener("click", () => {
     myCell9.clicked = true;
     myCell9.color = myGame.nextColor;
     myGame.changeColor(9);
+    if (myGame.compare(myGame.player1Moves)) {
+      displayWinner("Player 1");
+    } else if (myGame.compare(myGame.player2Moves)) {
+      displayWinner("Player 2");
+    }
   } else {
     console.log(`cell already clicked and is ${myCell9.color}`);
   }
