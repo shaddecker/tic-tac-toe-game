@@ -13,9 +13,9 @@ header {
   grid-row: 1;
   grid-column: 1 / span 2;
   background: darkgrey;
-  font-size: 4vw;
+  font-size: 60px;
   font-family: "Fresca", Arial, Helvetica, sans-serif;
-  padding: 3vw;
+  padding: 30px;
   text-align: center;
 }
 
@@ -37,41 +37,12 @@ main {
   border: solid 2px black;
   height: 100%;
   width: 100%;
-  margin: 10px;
-  padding: 5px;
 }
 #winner {
   font-size: 2vw;
   font-family: "Fresca", Arial, Helvetica, sans-serif;
   text-align: center;
   color: red;
-}
-#square_1 {
-  background-color: tan;
-}
-#square_2 {
-  background-color: tan;
-}
-#square_3 {
-  background-color: tan;
-}
-#square_4 {
-  background-color: tan;
-}
-#square_5 {
-  background-color: tan;
-}
-#square_6 {
-  background-color: tan;
-}
-#square_7 {
-  background-color: tan;
-}
-#square_8 {
-  background-color: tan;
-}
-#square_9 {
-  background-color: tan;
 }
 
 .left {
