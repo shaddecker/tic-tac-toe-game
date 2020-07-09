@@ -57,12 +57,87 @@ function displayWinner(winningPlayer) {
   let winnerBox = document.querySelector("#winner");
   winnerBox.innerText = `${winningPlayer} wins!!`;
   winnerBox.style.display = "block";
+  for (j = 1; j <= 9; j++) {
+    let theSquare = whichSquare(j);
+    theSquare.removeEventListener("click", squareClickHandler);
+    theSquare.removeEventListener("mouseover", squareMouseOverHandler);
+    theSquare.removeEventListener("mouseout", squareMouseOutHandler);
+  }
+}
+
+function whichSquare(num) {
+  let squareObject = null;
+  switch (num) {
+    case 1:
+      squareObject = square1;
+      break;
+    case 2:
+      squareObject = square2;
+      break;
+    case 3:
+      squareObject = square3;
+      break;
+    case 4:
+      squareObject = square4;
+      break;
+    case 5:
+      squareObject = square5;
+      break;
+    case 6:
+      squareObject = square6;
+      break;
+    case 7:
+      squareObject = square7;
+      break;
+    case 8:
+      squareObject = square8;
+      break;
+    case 9:
+      squareObject = square9;
+      break;
+  }
+  return squareObject;
+}
+
+function whichCell(num) {
+  let cellObject = null;
+  switch (num) {
+    case "1":
+      cellObject = myCell1;
+      break;
+    case "2":
+      cellObject = myCell2;
+      break;
+    case "3":
+      cellObject = myCell3;
+      break;
+    case "4":
+      cellObject = myCell4;
+      break;
+    case "5":
+      cellObject = myCell5;
+      break;
+    case "6":
+      cellObject = myCell6;
+      break;
+    case "7":
+      cellObject = myCell7;
+      break;
+    case "8":
+      cellObject = myCell8;
+      break;
+    case "9":
+      cellObject = myCell9;
+      break;
+  }
+  return cellObject;
 }
 
 function squareClickHandler() {
   let currentCell = event.target.id.substring(7);
   document.querySelector(`#square_${currentCell}`).style.background = myGame.nextColor;
   myGame.changeColor(currentCell);
+  whichCell(currentCell).clicked = true;
   if (myGame.compare(myGame.player1Moves)) {
     displayWinner("Player 1");
   } else if (myGame.compare(myGame.player2Moves)) {
@@ -72,12 +147,18 @@ function squareClickHandler() {
 
 function squareMouseOverHandler() {
   let currentCell = event.target.id.substring(7);
-  document.querySelector(`#square_${currentCell}`).style.background = myGame.nextColor;
+  // console.log(event.target.id.substring(7));
+  let cellObject = whichCell(currentCell);
+  if (cellObject.clicked === false) {
+    document.querySelector(`#square_${currentCell}`).style.background = myGame.nextColor;
+  }
 }
 
 function squareMouseOutHandler() {
   let currentCell = event.target.id.substring(7);
-  document.querySelector(`#square_${currentCell}`).style.background = "white";
+  if (!whichCell(currentCell).clicked) {
+    document.querySelector(`#square_${currentCell}`).style.background = "white";
+  }
 }
 
 let square1 = document.querySelector("#square_1");
@@ -100,40 +181,19 @@ startGameButton.addEventListener("click", () => {
   myGame.player1Moves = [];
   myGame.player2Moves = [];
   myGame.nextColor = "red";
-  myCell1.clicked = false;
-  myCell2.clicked = false;
-  myCell3.clicked = false;
-  myCell4.clicked = false;
-  myCell5.clicked = false;
-  myCell6.clicked = false;
-  myCell7.clicked = false;
-  myCell8.clicked = false;
-  myCell9.clicked = false;
-  square1.addEventListener("click", squareClickHandler, { once: true });
-  square1.addEventListener("mouseover", squareMouseOverHandler);
-  square1.addEventListener("mouseout", squareMouseOutHandler);
-  square2.addEventListener("click", squareClickHandler, { once: true });
-  square2.addEventListener("mouseover", squareMouseOverHandler);
-  square2.addEventListener("mouseout", squareMouseOutHandler);
-  square3.addEventListener("click", squareClickHandler, { once: true });
-  square3.addEventListener("mouseover", squareMouseOverHandler);
-  square3.addEventListener("mouseout", squareMouseOutHandler);
-  square4.addEventListener("click", squareClickHandler, { once: true });
-  square4.addEventListener("mouseover", squareMouseOverHandler);
-  square4.addEventListener("mouseout", squareMouseOutHandler);
-  square5.addEventListener("click", squareClickHandler, { once: true });
-  square5.addEventListener("mouseover", squareMouseOverHandler);
-  square5.addEventListener("mouseout", squareMouseOutHandler);
-  square6.addEventListener("click", squareClickHandler, { once: true });
-  square6.addEventListener("mouseover", squareMouseOverHandler);
-  square6.addEventListener("mouseout", squareMouseOutHandler);
-  square7.addEventListener("click", squareClickHandler, { once: true });
-  square7.addEventListener("mouseover", squareMouseOverHandler);
-  square7.addEventListener("mouseout", squareMouseOutHandler);
-  square8.addEventListener("click", squareClickHandler, { once: true });
-  square8.addEventListener("mouseover", squareMouseOverHandler);
-  square8.addEventListener("mouseout", squareMouseOutHandler);
-  square9.addEventListener("click", squareClickHandler, { once: true });
-  square9.addEventListener("mouseover", squareMouseOverHandler);
-  square9.addEventListener("mouseout", squareMouseOutHandler);
+  // myCell1.clicked = false;
+  // myCell2.clicked = false;
+  // myCell3.clicked = false;
+  // myCell4.clicked = false;
+  // myCell5.clicked = false;
+  // myCell6.clicked = false;
+  // myCell7.clicked = false;
+  // myCell8.clicked = false;
+  // myCell9.clicked = false;
+  for (j = 1; j <= 9; j++) {
+    let theSquare = whichSquare(j);
+    theSquare.addEventListener("click", squareClickHandler);
+    theSquare.addEventListener("mouseover", squareMouseOverHandler);
+    theSquare.addEventListener("mouseout", squareMouseOutHandler);
+  }
 });
