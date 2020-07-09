@@ -8,6 +8,7 @@ class Game {
     this.winningCombos = ["1,2,3", "4,5,6", "7,8,9", "1,4,7", "2,5,8", "3,6,9", "1,5,9", "3,5,7"];
   }
   changeColor(theCell) {
+    // console.log("here" + this.nextColor);
     if (this.nextColor === "red") {
       this.player1Moves.push(theCell);
       this.nextColor = "blue";
@@ -18,6 +19,7 @@ class Game {
   }
   compare(thePlayerMoves) {
     let winnerFound = false;
+    // console.log(thePlayerMoves.sort());
     if (thePlayerMoves.length >= 3) {
       thePlayerMoves = thePlayerMoves.sort();
       let strPlayerMoves = thePlayerMoves.join();
@@ -34,10 +36,12 @@ class Game {
 class Cell {
   constructor() {
     this.clicked = false;
+    this.color = "white";
   }
 }
 
 function displayWinner(winningPlayer) {
+  // console.log(`${winningPlayer} wins"`);
   let winnerBox = document.querySelector("#winner");
   winnerBox.innerText = `${winningPlayer} wins!!`;
   winnerBox.style.display = "block";
