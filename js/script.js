@@ -86,31 +86,31 @@ function whichSquare(num) {
 function whichCell(num) {
   let cellObject = null;
   switch (num) {
-    case "1":
+    case 1:
       cellObject = myCell1;
       break;
-    case "2":
+    case 2:
       cellObject = myCell2;
       break;
-    case "3":
+    case 3:
       cellObject = myCell3;
       break;
-    case "4":
+    case 4:
       cellObject = myCell4;
       break;
-    case "5":
+    case 5:
       cellObject = myCell5;
       break;
-    case "6":
+    case 6:
       cellObject = myCell6;
       break;
-    case "7":
+    case 7:
       cellObject = myCell7;
       break;
-    case "8":
+    case 8:
       cellObject = myCell8;
       break;
-    case "9":
+    case 9:
       cellObject = myCell9;
       break;
   }
@@ -118,7 +118,7 @@ function whichCell(num) {
 }
 
 function squareClickHandler() {
-  let currentCell = event.target.id.substring(7);
+  let currentCell = parseInt(event.target.id.substring(7));
   document.querySelector(`#square_${currentCell}`).style.background = myGame.nextColor;
   myGame.changeColor(currentCell);
   whichCell(currentCell).clicked = true;
@@ -130,15 +130,15 @@ function squareClickHandler() {
 }
 
 function squareMouseOverHandler() {
-  let currentCell = event.target.id.substring(7);
+  let currentCell = parseInt(event.target.id.substring(7));
   let cellObject = whichCell(currentCell);
-  if (cellObject.clicked === false) {
+  if (!cellObject.clicked) {
     document.querySelector(`#square_${currentCell}`).style.background = myGame.nextColor;
   }
 }
 
 function squareMouseOutHandler() {
-  let currentCell = event.target.id.substring(7);
+  let currentCell = parseInt(event.target.id.substring(7));
   if (!whichCell(currentCell).clicked) {
     document.querySelector(`#square_${currentCell}`).style.background = "white";
   }
@@ -174,6 +174,9 @@ startGameButton.addEventListener("click", () => {
   myGame.player1Moves = [];
   myGame.player2Moves = [];
   myGame.nextColor = "red";
+  for (j = 1; j <= 9; j++) {
+    whichCell(j).clicked = false;
+  }
 
   for (j = 1; j <= 9; j++) {
     let theSquare = whichSquare(j);
@@ -183,7 +186,7 @@ startGameButton.addEventListener("click", () => {
   }
   for (j = 1; j <= 9; j++) {
     let theSquare = whichSquare(j);
-    theSquare.addEventListener("click", squareClickHandler);
+    theSquare.addEventListener("click", squareClickHandler, { once: true });
     theSquare.addEventListener("mouseover", squareMouseOverHandler);
     theSquare.addEventListener("mouseout", squareMouseOutHandler);
   }
