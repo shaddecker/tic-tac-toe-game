@@ -5,19 +5,10 @@ class Game {
     this.player1Moves = [];
     this.player2Moves = [];
     this.nextColor = "red";
-    this.winningCombos = [
-      "1,2,3",
-      "4,5,6",
-      "7,8,9",
-      "1,4,7",
-      "2,5,8",
-      "3,6,9",
-      "1,5,9",
-      "3,5,7",
-    ];
+    this.winningCombos = ["1,2,3", "4,5,6", "7,8,9", "1,4,7", "2,5,8", "3,6,9", "1,5,9", "3,5,7"];
   }
   changeColor(theCell) {
-    console.log("here" + this.nextColor);
+    // console.log("here" + this.nextColor);
     if (this.nextColor === "red") {
       this.player1Moves.push(theCell);
       this.nextColor = "blue";
@@ -28,7 +19,7 @@ class Game {
   }
   compare(thePlayerMoves) {
     let winnerFound = false;
-    console.log(thePlayerMoves.sort());
+    // console.log(thePlayerMoves.sort());
     if (thePlayerMoves.length >= 3) {
       thePlayerMoves = thePlayerMoves.sort();
       let strPlayerMoves = thePlayerMoves.join();
@@ -62,7 +53,7 @@ let myCell8 = new Cell(8);
 let myCell9 = new Cell(9);
 
 function displayWinner(winningPlayer) {
-  console.log(`${winningPlayer} wins"`);
+  // console.log(`${winningPlayer} wins"`);
   let winnerBox = document.querySelector("#winner");
   winnerBox.innerText = `${winningPlayer} wins!!`;
   winnerBox.style.display = "block";
@@ -70,6 +61,8 @@ function displayWinner(winningPlayer) {
 
 let square1 = document.querySelector("#square_1");
 square1.addEventListener("click", () => {
+  let currentCell = this;
+  console.log(currentCell);
   if (!myCell1.clicked) {
     document.querySelector("#square_1").style.background = myGame.nextColor;
     myCell1.clicked = true;
@@ -83,7 +76,6 @@ square1.addEventListener("click", () => {
   } else {
     console.log(`cell already clicked and is ${myCell1.color}`);
   }
-  console.log(myGame.nextColor);
 });
 
 let square2 = document.querySelector("#square_2");
